@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export const Users = () => {
@@ -7,9 +7,17 @@ export const Users = () => {
   useEffect(() => {
     axios.get("https://reqres.in/api/users").then(({ data }) => {
       // console.log(data);
-      setList;
+      setList([...data.data]);
     });
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      {list.map((e) => (
+        <div>
+          {e.id}. {e.first_name}
+        </div>
+      ))}
+    </div>
+  );
 };
