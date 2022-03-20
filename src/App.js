@@ -4,7 +4,7 @@ import { Hello } from "./components/Hello";
 import { About } from "./components/About";
 import { Navbar } from "./components/Navbar";
 import { Users } from "./components/Users";
-import { UsersDetails } from "./components/UsersDetails";
+import { UserDetails } from "./components/UserDetails";
 import { ProductDetails } from "./components/ProductDetails";
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
 
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/users/:id" element={<UsersDetails />} />
+        <Route path="/users/:userid" element={<UserDetails />} />
       </Routes>
     </div>
   );

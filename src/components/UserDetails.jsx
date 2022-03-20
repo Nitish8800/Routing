@@ -1,8 +1,15 @@
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export const UserDetails = () => {
-  const { id } = useParams();
+  const { userid } = useParams();
+  const [user, setUser] = useState();
 
-  return <div>User Of Id : {id}</div>;
+  useEffect(() => {
+    axios.get(`https://reqres.in/api/users/${userid}`);
+    // setUser([...data.data]);
+  }, []);
+
+  return <div>User Of Id : {userid}</div>;
 };
