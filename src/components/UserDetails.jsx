@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 
 export const UserDetails = () => {
   const { userid } = useParams();
@@ -11,5 +11,9 @@ export const UserDetails = () => {
     // setUser([...data.data]);
   }, []);
 
-  return <div>User Of Id : {userid}</div>;
+  if (true) {
+    return <Navigate to={"/login"} />;
+  }
+
+  return <div>User Details Of Id : {userid}</div>;
 };
