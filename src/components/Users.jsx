@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const Users = () => {
   const [list, setList] = useState([]);
@@ -7,16 +8,21 @@ export const Users = () => {
   useEffect(() => {
     axios.get("https://reqres.in/api/users").then(({ data }) => {
       // console.log(data);
-      setList([...data]);
+      setList([...data.data]);
     });
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column"
+      }}
+    >
       {list.map((e) => (
-        <div key={e.id}>
+        <Link to={`/users/${e.id}`} key={e.id}>
           {e.id}. {e.first_name}
-        </div>
+        </Link>
       ))}
     </div>
   );
